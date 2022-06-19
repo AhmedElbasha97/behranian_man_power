@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "401842011943",
+    "project_id": "beharn-manpower",
+    "storage_bucket": "beharn-manpower.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401842011943:android:449e13846f3a559da93302",
+        "android_client_info": {
+          "package_name": "com.sync.bahrain_manpower"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401842011943-5no34572qat7p385hrreaknp2g9ipe6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-r4BqVl7GkiGIEBXiJrVNFUEv2BJn5CE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401842011943-5no34572qat7p385hrreaknp2g9ipe6b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "401842011943-vpfcc9q1uab0qh127n41dh2ho7k2n8ko.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sync.bahrainManpower"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
