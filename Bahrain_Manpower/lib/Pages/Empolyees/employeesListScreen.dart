@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, file_names
 
+import 'package:bahrain_manpower/Global/Settings.dart';
 import 'package:flutter/material.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:bahrain_manpower/Global/theme.dart';
@@ -101,7 +102,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String userId = prefs.getString("id") ?? "";
       launchURL(
-          "http://manpower-kw.com/api/pay?client_id=$userId&worker_id=$id");
+          "${baseUrl}pay?client_id=$userId&worker_id=$id");
     }
   }
 
@@ -180,7 +181,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                     borderRadius:
                                         const BorderRadius.all(Radius.circular(5)),
                                     border: Border.all(
-                                      color: mainBlueColor,
+                                      color:  Colors.grey,
                                     ),
                                   ),
                                   child: DropdownButton<filter.Occupation>(
@@ -193,6 +194,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                             : selectedJob!.occupationName??"",
                                         style: const TextStyle(
                                           fontSize: 13,
+                                            color: Colors.grey
                                         )),
                                     underline: const SizedBox(),
                                     items: data.occupation!
@@ -211,6 +213,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                                       : value.occupationName??"",
                                                   style: const TextStyle(
                                                     fontSize: 13,
+                                                      color: Colors.grey
                                                   )),
                                             ))
                                         .toList(),
@@ -236,7 +239,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                     borderRadius:
                                         const BorderRadius.all(Radius.circular(5)),
                                     border: Border.all(
-                                      color: mainBlueColor,
+                                        color: Colors.grey,
                                     ),
                                   ),
                                   child: DropdownButton<filter.Religion>(
@@ -249,6 +252,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                             : selectedReligion!.religionName??"",
                                         style: const TextStyle(
                                           fontSize: 13,
+                                            color: Colors.grey
                                         )),
                                     underline: const SizedBox(),
                                     items: data.religion!
@@ -290,7 +294,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                       borderRadius:
                                           const BorderRadius.all(Radius.circular(5)),
                                       border: Border.all(
-                                        color: mainBlueColor,
+                                          color: Colors.grey,
                                       ),
                                     ),
                                     child: DropdownButton<filter.Status>(
@@ -303,6 +307,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                               : selectedStatus!.statusName??"",
                                           style: const TextStyle(
                                             fontSize: 13,
+                                              color: Colors.grey
                                           )),
                                       underline: const SizedBox(),
                                       items: data.status!
@@ -343,7 +348,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                     borderRadius:
                                         const BorderRadius.all(Radius.circular(5)),
                                     border: Border.all(
-                                      color: mainBlueColor,
+                                        color: Colors.grey,
                                     ),
                                   ),
                                   child: DropdownButton<filter.Residence>(
@@ -374,6 +379,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                                       : value.residenceName??"",
                                                   style: const TextStyle(
                                                     fontSize: 13,
+                                                      color: Colors.grey,
                                                   )),
                                             ))
                                         .toList(),
@@ -399,7 +405,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                     borderRadius:
                                         const BorderRadius.all(Radius.circular(5)),
                                     border: Border.all(
-                                      color: mainBlueColor,
+                                        color: Colors.grey,
                                     ),
                                   ),
                                   child: DropdownButton<filter.Nationality>(
@@ -413,6 +419,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                                 .nationalityName??"",
                                         style: const TextStyle(
                                           fontSize: 13,
+                                            color: Colors.grey,
                                         )),
                                     underline: const SizedBox(),
                                     items: data.nationality!
@@ -431,6 +438,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                                                       : value.nationalityName??"",
                                                   style: const TextStyle(
                                                     fontSize: 13,
+                                                      color: Colors.grey
                                                   )),
                                             ))
                                         .toList(),

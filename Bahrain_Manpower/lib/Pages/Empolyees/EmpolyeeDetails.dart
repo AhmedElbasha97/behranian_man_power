@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously, file_names, prefer_adjacent_string_concatenation, prefer_interpolation_to_compose_strings
 
+import 'package:bahrain_manpower/Global/Settings.dart';
+import 'package:bahrain_manpower/services/Companies/CompaniesService.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +30,20 @@ class EmployeesScreen extends StatefulWidget {
 class EmployeesScreenState extends State<EmployeesScreen> {
   List<String?> imgList = [];
   final CarouselController _controller = CarouselController();
-  silderdata() {
+  silderdata() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+   var type = prefs.getString("type");
+   var id = prefs.getString("id");
+    if(type == "company"){
+      var payed = await CompaniesService().getPayed(id!);
+      if(!payed!.pay!){
+        showPaymentDialog(context,(){
+          launchURL(
+              "${url}StripePayment/form?company_id=${id}");
+
+        },"10 KD");
+      }
+    }
     if (widget.data != null) {
       if (widget.data!.image1 != null) {
 
@@ -319,7 +334,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('name')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -352,7 +367,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('job')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -385,7 +400,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('contractTime')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -416,7 +431,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('exp')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -447,7 +462,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('birthday')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -478,7 +493,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('monthlySalary')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -512,7 +527,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('language')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                const TextStyle(fontSize: 14, color: Colors.black),
                           ),
                         ),
                       ),
@@ -550,7 +565,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('nationality')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -586,7 +601,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('skills')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                const TextStyle(fontSize: 14, color: Colors.black),
                           ),
                         ),
                       ),
@@ -624,7 +639,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('socialStatus')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -657,7 +672,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('city')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -693,7 +708,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('certificates')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                const TextStyle(fontSize: 14, color: Colors.black),
                           ),
                         ),
                       ),
@@ -730,7 +745,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('age')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -761,7 +776,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('birthday')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -792,7 +807,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('religion')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -825,7 +840,7 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "${AppLocalizations.of(context)?.translate('passportNo')}:",
-                      style: TextStyle(fontSize: 14, color: mainBlueColor),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ),
                 ),
@@ -859,8 +874,8 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "${AppLocalizations.of(context)?.translate('kidsNo')}:",
-                                style: TextStyle(
-                                    fontSize: 14, color: mainBlueColor),
+                                style: const TextStyle(
+                                    fontSize: 14, color: Colors.black),
                               ),
                             ),
                           ),
@@ -890,8 +905,8 @@ class EmployeesScreenState extends State<EmployeesScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "${AppLocalizations.of(context)?.translate('passportissueDate')}:",
-                                style: TextStyle(
-                                    fontSize: 14, color: mainBlueColor),
+                                style: const TextStyle(
+                                    fontSize: 14, color: Colors.black),
                               ),
                             ),
                           ),

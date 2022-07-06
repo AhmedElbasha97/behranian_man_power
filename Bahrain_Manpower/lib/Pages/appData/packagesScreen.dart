@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:bahrain_manpower/Global/Settings.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:bahrain_manpower/Global/theme.dart';
@@ -56,7 +57,7 @@ class PackagesScreenState extends State<PackagesScreen> {
                   child: ListTile(
                     onTap: () {
                       launchURL(
-                          "http://manpower-kw.com/api/pay?client_id=$id&package_id=${list[index].packageId}");
+                          "${baseUrl}pay?client_id=$id&package_id=${list[index].packageId}");
                     },
                     tileColor: mainOrangeColor,
                     title:  ExpandableNotifier(

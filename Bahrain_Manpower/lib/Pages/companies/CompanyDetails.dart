@@ -1,6 +1,7 @@
 
 // ignore_for_file: file_names, unused_field, use_build_context_synchronously, unrelated_type_equality_checks, avoid_print
 
+import 'package:bahrain_manpower/Global/Settings.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:bahrain_manpower/Global/theme.dart';
@@ -797,6 +798,19 @@ class CompanyDetailsScreenState extends State<CompanyDetailsScreen>
   }
 
   getAllData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+   var type = prefs.getString("type");
+   var id = prefs.getString("id");
+    if(type == "company"){
+      var payed = await CompaniesService().getPayed(id!);
+      if(!payed!.pay!){
+        showPaymentDialog(context,(){
+          launchURL(
+              "${url}StripePayment/form?company_id=${id}");
+
+        },"10 KD");
+      }
+    }
     await getRating();
     await getStats();
     await initListOfTabs();

@@ -62,7 +62,7 @@ class AppDataService {
   Future<PrivacyPolicyModel> getPrivacyPolicy() async {
     PrivacyPolicyModel data;
     Response response;
-    response = await Dio().get('http://manpower-kw.com/api/policy');
+    response = await Dio().get('${baseUrl}policy');
     data = PrivacyPolicyModel.fromJson(response.data);
     return data;
   }
@@ -70,7 +70,7 @@ class AppDataService {
   Future<PrivacyPolicyModel> getTermsAndCondition() async {
     PrivacyPolicyModel data;
     Response response;
-    response = await Dio().get('http://manpower-kw.com/api/terms');
+    response = await Dio().get('${baseUrl}terms');
     data = PrivacyPolicyModel.fromJson(response.data);
     return data;
   }

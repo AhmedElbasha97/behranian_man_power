@@ -4,6 +4,7 @@
 import 'dart:io';
 import 'package:bahrain_manpower/Global/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'firebase_options.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:bahrain_manpower/Pages/ChatingScreen/chats_list_screen.dart';
@@ -62,7 +63,8 @@ class _MyAppState extends State<MyApp> {
     NotificationServices.checkNotificationAppInBackground(context);
     NotificationServices.initialize();
     NotificationServices.checkNotificationAppInForeground(context);
-
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     FirebaseMessaging.instance.getInitialMessage().then((message) {
       if (message != null) {
         var data;

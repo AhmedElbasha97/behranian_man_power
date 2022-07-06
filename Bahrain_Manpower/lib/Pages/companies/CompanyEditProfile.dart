@@ -61,7 +61,7 @@ class CompanyEditProfileState extends State<CompanyEditProfile> {
 
     final result = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const MapScreen()),
+      MaterialPageRoute(builder: (context) => MapScreen()),
     );
     selectedPlace =result;
     List<Placemark> i =

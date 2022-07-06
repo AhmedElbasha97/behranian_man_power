@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:bahrain_manpower/models/AppInfo/CompanyPayModel.dart';
 import 'package:dio/dio.dart';
 import 'package:bahrain_manpower/models/Companies/Categories.dart';
 import 'package:bahrain_manpower/models/Companies/Employees.dart' as company;
@@ -25,6 +26,7 @@ class CompaniesService {
   String socialMediaClicks = "clicks";
   String transations = "transaction";
   String editProfile = "set/company/info";
+  String companyPayed = "pay/company/";
 
   Future<List<Categories>> getCategories() async {
     Response response;
@@ -42,17 +44,29 @@ class CompaniesService {
     Response response;
     Rating? rate ;
     try {
-      response = await Dio().get('http://manpower-kw.com/api/rating/$companyId');
+      response = await Dio().get('${baseUrl}rating/$companyId');
       var data = response.data;
       rate =Rating.fromJson(data);
     } on DioError catch (e) {
     }
     return rate;
-  }Future<StatisticsModel?> getStatistics(String companyId) async {
+  }
+  Future<CompanyPayModel?> getPayed(String companyId) async {
+    Response response;
+    CompanyPayModel? rate ;
+    try {
+      response = await Dio().get('${baseUrl+companyPayed}$companyId');
+      var data = response.data;
+      rate =CompanyPayModel.fromJson(data);
+    } on DioError catch (e) {
+    }
+    return rate;
+  }
+  Future<StatisticsModel?> getStatistics(String companyId) async {
     Response response;
     StatisticsModel? statistics ;
     try {
-      response = await Dio().get('http://manpower-kw.com/api/statistics/$companyId');
+      response = await Dio().get('${baseUrl}statistics/$companyId');
       var data = response.data;
       statistics =StatisticsModel.fromJson(data);
     } on DioError catch (e) {

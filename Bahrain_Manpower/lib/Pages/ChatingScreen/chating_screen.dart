@@ -9,6 +9,10 @@ import 'package:bahrain_manpower/services/notification/notification_services.dar
 import 'package:bahrain_manpower/widgets/loader.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../Global/Settings.dart';
+import '../../Global/utils/helpers.dart';
+import '../../services/Companies/CompaniesService.dart';
+
 
 class ChattingScreen extends StatefulWidget {
  final String reciverId;
@@ -28,10 +32,31 @@ bool isLoading = true;
   final ChatServiceList services =ChatServiceList();
    late List<Message> listOfMessages ;
    sendMessage(String massage) async {
-     MassageList? massageList = await services.sendMassage(widget.reciverId, massage);
-     listOfMessages= massageList.date![0].messages!;
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+     var type = prefs.getString("type");
+     var id = prefs.getString("id");
+     if(type == "company"){
+       var payed = await CompaniesService().getPayed(id!);
+       if(!payed!.pay!){
+         showPaymentDialog(context,(){
+           launchURL(
+               "${url}StripePayment/form?company_id=${id}");
 
-     setState(() {});
+         },"10 KD");
+       }else{
+         MassageList? massageList = await services.sendMassage(
+             widget.reciverId, massage);
+         listOfMessages = massageList.date![0].messages!;
+
+         setState(() {});
+       }
+     }else {
+       MassageList? massageList = await services.sendMassage(
+           widget.reciverId, massage);
+       listOfMessages = massageList.date![0].messages!;
+
+       setState(() {});
+     }
    }
    getId() async {
      SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -40,7 +65,6 @@ bool isLoading = true;
 
 
   checkForNewMasssageLists() async {
-
        MassageList massageList = await services.listAllChats(
            widget.reciverId);
        listOfMessages= massageList.date![0].messages!;

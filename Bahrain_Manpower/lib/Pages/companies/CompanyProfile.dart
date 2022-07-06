@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:bahrain_manpower/Global/Settings.dart';
 import 'package:flutter/material.dart';
 import 'package:bahrain_manpower/Global/theme.dart';
 import 'package:bahrain_manpower/Global/utils/helpers.dart';
@@ -63,7 +64,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                         CircleAvatar(
                           radius: 50,
                           backgroundImage:
-                          info?.data?.image1!="https://manpower-kw.com/uploads/0"&&info?.data?.image1!=null?NetworkImage("${info?.data?.image1}"):const AssetImage('assets/icon/companyplaceholder.png') as ImageProvider,
+                          info?.data?.image1!="${url}uploads/0"&&info?.data?.image1!=null?NetworkImage("${info?.data?.image1}"):const AssetImage('assets/icon/companyplaceholder.png') as ImageProvider,
                         ),
                         Text(
                           Localizations.localeOf(context).languageCode == "en" ? info!.data?.nameAr??"ليس متوفر اسم الشركة بالعربي" : info!.data?.nameEn??"no english name available",
@@ -88,9 +89,9 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                       leading: Container(
                         width: 35,
                         height: 35,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.green,
+                        decoration:  BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          color:mainOrangeColor,
                         ),
                         child: const Icon(
                           Icons.edit,
@@ -116,9 +117,9 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                       leading: Container(
                         width: 35,
                         height: 35,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.green,
+                        decoration:  BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          color:mainOrangeColor,
                         ),
                         child: const Icon(
                           Icons.file_present,
@@ -148,9 +149,9 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                       leading: Container(
                         width: 35,
                         height: 35,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.green,
+                        decoration:  BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          color:mainOrangeColor,
                         ),
                         child: const Icon(
                           Icons.payment,
@@ -159,7 +160,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                       ),
                       onTap: () {
                         launchURL(
-                            "http://manpower-kw.com/api/pay?company_id=${info!.data!.companyId}");
+                            "${url}StripePayment/form?company_id=${info!.data!.companyId}");
                       }),
                   const SizedBox(
                     height: 10,
@@ -177,9 +178,9 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                       leading: Container(
                         width: 35,
                         height: 35,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.green,
+                        decoration:  BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          color:mainOrangeColor,
                         ),
                         child: const Icon(
                           Icons.file_copy,
@@ -209,9 +210,9 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                       leading: Container(
                         width: 35,
                         height: 35,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.green,
+                        decoration:  BoxDecoration(
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                          color:mainOrangeColor,
                         ),
                         child: const Icon(
                           Icons.money_outlined,
@@ -225,7 +226,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                     height: 20,
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -268,7 +269,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                             child: Text(
                               "${AppLocalizations.of(context)?.translate('specialty')}:",
                               style:
-                                  TextStyle(fontSize: 14, color: mainBlueColor),
+                                  TextStyle(fontSize: 14, color: Colors.grey[400]),
                             ),
                           ),
                         ),
@@ -289,7 +290,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                     ),
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -332,7 +333,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                             child: Text(
                               "${AppLocalizations.of(context)?.translate('username')}:",
                               style:
-                                  TextStyle(fontSize: 14, color: mainBlueColor),
+                                  TextStyle(fontSize: 14, color: Colors.grey[400]),
                             ),
                           ),
                         ),
@@ -353,7 +354,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                     ),
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -398,7 +399,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14,
-                                  color: mainBlueColor),
+                                  color: Colors.grey[400]),
                             ),
                           ),
                         )
@@ -406,7 +407,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                     ),
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -438,7 +439,7 @@ class CompanyProfileScreenState extends State<CompanyProfileScreen> {
                             child: Text(
                               "${AppLocalizations.of(context)?.translate('email')}:",
                               style:
-                                  TextStyle(fontSize: 14, color: mainBlueColor),
+                                  TextStyle(fontSize: 14, color: Colors.grey[400]),
                             ),
                           ),
                         ),

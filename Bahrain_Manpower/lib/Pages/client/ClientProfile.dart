@@ -56,7 +56,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
         title: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset("assets/icon/logoAppBar.png",
-                scale: 4.5, fit: BoxFit.scaleDown)),
+                scale: 8, fit: BoxFit.scaleDown)),
       ),
       drawer: isLoading ? Container() : MainDrawer(id, type),
       body: isLoading
@@ -80,7 +80,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                     height: 20,
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -123,7 +123,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                             child: Text(
                               "${AppLocalizations.of(context)?.translate('name')}:",
                               style:
-                                  TextStyle(fontSize: 14, color: mainBlueColor),
+                                  TextStyle(fontSize: 14, color: Colors.grey[400]),
                             ),
                           ),
                         ),
@@ -147,7 +147,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                     ),
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -190,7 +190,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                             child: Text(
                               "${AppLocalizations.of(context)?.translate('mobile')}:",
                               style:
-                                  TextStyle(fontSize: 14, color: mainBlueColor),
+                                  TextStyle(fontSize: 14, color: Colors.grey[400]),
                             ),
                           ),
                         ),
@@ -211,7 +211,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                     ),
                   ),
                   Container(
-                    color: Colors.grey[300],
+                    color: Colors.grey[400],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -250,7 +250,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                       title: Text(
                         "${AppLocalizations.of(context)?.translate('packages')}",
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
@@ -261,11 +261,11 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                         height: 35,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.green,
+                          color: Colors.red,
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.payment,
-                          color: Colors.white,
+                          color: mainBlueColor,
                         ),
                       ),
                       onTap: () {
@@ -276,7 +276,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                       title: Text(
                         "${AppLocalizations.of(context)?.translate('cvs')}",
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.bold),
                         textScaleFactor: 1.0,
@@ -288,9 +288,9 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                           borderRadius: const BorderRadius.all(Radius.circular(10)),
                           color: mainOrangeColor,
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.people,
-                          color: Colors.white,
+                          color:mainBlueColor,
                         ),
                       ),
                       onTap: () {
@@ -301,7 +301,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                       title: Text(
                         "${AppLocalizations.of(context)?.translate('editProfile')}",
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.bold),
                         textScaleFactor: 1.0,
@@ -313,9 +313,9 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                           borderRadius: const BorderRadius.all(Radius.circular(10)),
                           color: mainOrangeColor,
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.edit,
-                          color: Colors.white,
+                          color: mainBlueColor,
                         ),
                       ),
                       onTap: () {
@@ -326,7 +326,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                       title: Text(
                         "${AppLocalizations.of(context)?.translate('messages')}",
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.bold),
                         textScaleFactor: 1.0,
@@ -338,9 +338,9 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                           borderRadius: const BorderRadius.all(Radius.circular(10)),
                           color: mainOrangeColor,
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.message,
-                          color: Colors.white,
+                          color:mainBlueColor,
                         ),
                       ),
                       onTap: () {
@@ -351,7 +351,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                       title: Text(
                         "${AppLocalizations.of(context)?.translate('paymentHistory')}",
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.bold),
                         textScaleFactor: 1.0,
@@ -363,9 +363,9 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                           borderRadius: const BorderRadius.all(Radius.circular(10)),
                           color: mainOrangeColor,
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.money_outlined,
-                          color: Colors.white,
+                          color: mainBlueColor,
                         ),
                       ),
                       onTap: () {
@@ -376,7 +376,7 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                       title: Text(
                         "${AppLocalizations.of(context)?.translate('favCv')}",
                         style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.bold),
                         textScaleFactor: 1.0,
@@ -388,10 +388,10 @@ class ClientProfileScreenState extends State<ClientProfileScreen> {
                           borderRadius: const BorderRadius.all(Radius.circular(10)),
                           color: mainOrangeColor,
                         ),
-                        child: const Center(
+                        child:  Center(
                           child: FaIcon(
                             FontAwesomeIcons.heart,
-                            color: Colors.white,
+                            color:mainBlueColor,
                           ),
                         ),
                       ),

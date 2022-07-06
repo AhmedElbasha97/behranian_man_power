@@ -15,8 +15,10 @@ import 'package:bahrain_manpower/services/OtherServices.dart/appDataService.dart
 import 'package:bahrain_manpower/services/workersService.dart';
 import 'package:bahrain_manpower/widgets/Companies/companyCategoryCard.dart';
 import 'package:bahrain_manpower/widgets/loader.dart';
+import 'package:new_version/new_version.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../Global/Settings.dart';
 import '../services/notification/notification_services.dart';
 
 class  SearchForEmployee extends StatefulWidget {
@@ -53,7 +55,21 @@ class SearchForEmployeeState extends State<SearchForEmployee> {
   }
 
   photoSlider() async {
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    type = prefs.getString("type");
+    id = prefs.getString("id");
+   if(type == "company"){
+     var payed = await CompaniesService().getPayed(id!);
+     if(!payed!.pay!){
+      
+         launchURL(
+             "${url}StripePayment/form?company_id=${id}");
+
+
+     }
+   }
+
     String? route;
     if(prefs.containsKey("route")){
       route = prefs.getString("route");
@@ -93,7 +109,10 @@ class SearchForEmployeeState extends State<SearchForEmployee> {
   @override
   void initState() {
     super.initState();
-
+    NewVersion(
+      androidId: "com.sync.bahrain_manpower",
+      iOSId: "com.sync.bahrain_manpower",
+    ).showAlertIfNecessary(context: context);
 
     NotificationServices.checkNotificationAppInForeground(context);
 

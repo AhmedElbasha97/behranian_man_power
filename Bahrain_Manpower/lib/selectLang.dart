@@ -3,6 +3,7 @@
 import 'package:bahrain_manpower/I10n/AppLanguage.dart';
 import 'package:bahrain_manpower/selectSection.dart';
 import 'package:flutter/material.dart';
+import 'package:new_version/new_version.dart';
 
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,16 @@ class SelectLang extends StatefulWidget {
 
 class SelectLangState extends State<SelectLang> {
   @override
+  void initState() {
+    super.initState();
+    NewVersion(
+
+      androidId: "com.sync.bahrain_manpower",
+      iOSId: "com.sync.bahrain_manpower",
+    ).showAlertIfNecessary(context: context);
+
+  }
+
   Widget build(BuildContext context) {
     var appLanguage = Provider.of<AppLanguage>(context);
     return Scaffold(

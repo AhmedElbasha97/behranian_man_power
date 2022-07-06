@@ -10,14 +10,47 @@ import 'package:bahrain_manpower/Pages/auth/logIn_screen.dart';
 import 'package:bahrain_manpower/Pages/welcome_screen.dart';
 import 'package:bahrain_manpower/services/chatService.dart';
 import 'package:bahrain_manpower/widgets/button_widget.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-launchURL(String url) async {
-  if (await launchUrl(Uri.parse(url))) {
-  } else {
-    throw 'Could not launch $url';
-  }
+
+launchURL(String url) async {try {
+  await launch(
+    url,
+    customTabsOption: CustomTabsOption(
+      toolbarColor: mainOrangeColor,
+      enableDefaultShare: true,
+      enableUrlBarHiding: true,
+      showPageTitle: true,
+      animation: CustomTabsSystemAnimation.slideIn(),
+      extraCustomTabs: const <String>[
+        // ref. https://play.google.com/store/apps/details?id=org.mozilla.firefox
+        'org.mozilla.firefox',
+        // ref. https://play.google.com/store/apps/details?id=com.microsoft.emmx
+        'com.microsoft.emmx',
+      ],
+    ),
+    safariVCOption: SafariViewControllerOption(
+      preferredBarTintColor: mainOrangeColor,
+      preferredControlTintColor: Colors.white,
+      barCollapsingEnabled: true,
+      entersReaderIfAvailable: false,
+      dismissButtonStyle: SafariViewControllerDismissButtonStyle.close,
+    ),
+  );
+} catch (e) {
+  // An exception is thrown if browser app is not installed on Android device.
+  debugPrint(e.toString());
+}
+
+  // WebView(
+  //   initialUrl: url,
+  //   javascriptMode: JavascriptMode.unrestricted,
+  // );
+  // if (await launchUrl(Uri.parse(url),mode: LaunchMode.inAppWebView)) {
+  // } else {
+  //   throw 'Could not launch $url';
+  // }
 }
 
 changeLangPopUp(BuildContext context) {

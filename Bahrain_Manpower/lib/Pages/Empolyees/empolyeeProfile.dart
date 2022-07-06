@@ -67,7 +67,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                     title: Text(
                       "${AppLocalizations.of(context)?.translate('messages')}",
                       style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                       textScaleFactor: 1.0,
@@ -99,7 +99,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('name')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                TextStyle(fontSize: 14, color: Colors.grey[400],),
                           ),
                         ),
                       ),
@@ -123,7 +123,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                   height: 10,
                 ),
                 Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -166,7 +166,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('exp')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                TextStyle(fontSize: 14, color: Colors.grey[400],),
                           ),
                         ),
                       ),
@@ -187,7 +187,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                   ),
                 ),
                 Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -226,7 +226,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "${AppLocalizations.of(context)?.translate('phoneNumber')}:",
-                          style: TextStyle(fontSize: 14, color: mainBlueColor),
+                          style: TextStyle(fontSize: 14, color: Colors.grey[400],),
                         ),
                       ),
                     ),
@@ -246,7 +246,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                   ],
                 ),
                 Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -289,7 +289,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('monthlySalary')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                TextStyle(fontSize: 14, color: Colors.grey[400],),
                           ),
                         ),
                       ),
@@ -302,7 +302,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
-                                color: mainOrangeColor),
+                                color: mainOrangeColor,),
                           ),
                         ),
                       )
@@ -310,7 +310,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                   ),
                 ),
                 Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                   child: worker!.language!.isEmpty
                       ? Container()
                       : Row(
@@ -363,7 +363,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('nationality')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                TextStyle(fontSize: 14, color: Colors.grey[400],),
                           ),
                         ),
                       ),
@@ -376,7 +376,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
-                                color: mainOrangeColor),
+                                color: mainOrangeColor,),
                           ),
                         ),
                       )
@@ -384,7 +384,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                   ),
                 ),
                 Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                   child: worker!.skills!.isEmpty
                       ? Container()
                       : Row(
@@ -437,7 +437,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                           child: Text(
                             "${AppLocalizations.of(context)?.translate('socialStatus')}:",
                             style:
-                                TextStyle(fontSize: 14, color: mainBlueColor),
+                                TextStyle(fontSize: 14, color: Colors.grey[400],),
                           ),
                         ),
                       ),
@@ -458,7 +458,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                   ),
                 ),
                 Container(
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -497,7 +497,7 @@ class EmployeeProfileState extends State<EmployeeProfile> {
                     title: Text(
                       "${AppLocalizations.of(context)?.translate('editProfile')}",
                       style: const TextStyle(
-                          color: Color(0xFF0671bf),
+                          color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                       textScaleFactor: 1.0,

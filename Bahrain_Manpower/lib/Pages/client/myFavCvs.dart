@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, use_build_context_synchronously, no_leading_underscores_for_local_identifiers
 
+import 'package:bahrain_manpower/Global/Settings.dart';
 import 'package:bahrain_manpower/Global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:bahrain_manpower/Global/utils/helpers.dart';
@@ -42,7 +43,7 @@ class MyFavCvsScreenState extends State<MyFavCvsScreen> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String userId = prefs.getString("id") ?? "";
       launchURL(
-          "http://manpower-kw.com/api/pay?client_id=$userId&worker_id=$id");
+          "${baseUrl}pay?client_id=$userId&worker_id=$id");
     }
   }
 

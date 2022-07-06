@@ -10,7 +10,6 @@ import 'package:bahrain_manpower/models/other/notification.dart';
 import 'package:bahrain_manpower/selectLang.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:new_version/new_version.dart';
 import 'Pages/ChatingScreen/chating_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -62,11 +61,7 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     checkToken();
-    NewVersion(
 
-      androidId: "com.syncapps.manpower",
-      iOSId: "com.syncapps.manpower",
-    ).showAlertIfNecessary(context: context);
   }
 
   @override
